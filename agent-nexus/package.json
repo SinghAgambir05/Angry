@@ -1,0 +1,40 @@
+{
+  "name": "agent-nexus",
+  "version": "1.0.0",
+  "description": "Inter-agent collaboration hub for Windows desktop AI agents",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n server,client -c teal,amber \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client && tsc -p server/tsconfig.json",
+    "start": "tsx server/index.ts",
+    "seed": "tsx server/seed.ts"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "collaboration",
+    "context",
+    "orchestration"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.2",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
